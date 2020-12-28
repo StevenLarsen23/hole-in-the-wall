@@ -1,15 +1,24 @@
-import React, { Component } from "react";
 import {Link} from 'react-router-dom';
 import '../Header/Header.css'
+import holeinwall from "../Header/holeinwall2.png";
 
 const Header = () => {
     return (
-        <div>
-            <h1>Header</h1>
+        <div className='header'>
+            <div className='homebutton'>
+            <Link to='/' className="links">
+                <img src={holeinwall} alt="" height="50" width="50" />
+            </Link>
+            
+            </div>
 
-    <Link to='/home' className="links"> <button> Home </button> </Link>
+            <Link to='/' className="links">  
+                Home  
+            </Link>
 
-    <Link to='/form' className="links"> <button> Add Spot </button> </Link>
+            <Link to='/form' className="links">  
+                Add Spot  
+            </Link>
 
 
         </div>
