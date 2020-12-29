@@ -1,5 +1,3 @@
-const bcrypt = require('bcrypt');
-
 module.exports = {
     delete: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
