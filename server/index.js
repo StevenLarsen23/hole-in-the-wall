@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 
-// const ctrl = require('./controller');  uncomment this after controller is made
+const ctrl = require('./controller');
 
 const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
 
@@ -23,11 +23,12 @@ massive({
 
 
 // Endpoints 
-app.get('/api/allStates')
-app.get('/api/oneState')
-app.put('/api/edit/:id')
-app.post('/api/create')
-app.delete('/api/delete/:id')
+app.get('/api/allStates', ctrl.getAllStates)
+app.get('/api/oneState/:id', ctrl.getOneState)
+app.get('/api/statePosts/:id', ctrl.getStatePosts)
+app.post('/api/create', ctrl.createPost)
+app.put('/api/edit/:id', ctrl.editPost)
+app.delete('/api/delete/:id', ctrl.deletePost)
 
 
 app.listen(SERVER_PORT, () => console.log(`Server is running on port: ${SERVER_PORT}`))
