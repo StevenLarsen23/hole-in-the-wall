@@ -7,16 +7,16 @@ const Form = () => {
     const [post, setPost] = useState()
 
     useEffect(() => {
-        const makePost = async () => {
+        const makePost = async (location_id, name, img, content) => {
             try {
-                const res = await axios.post('/api/create')
+                const res = await axios.post('/api/create', {location_id, name, img, content})
                 setPost(res.data)
             }
             catch (err) {
                 console.log(err)
             }
         }
-        setPost()
+        makePost()
     }, []);
 
 
