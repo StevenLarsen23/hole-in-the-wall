@@ -4,20 +4,20 @@ import axios from 'axios';
 const Form = () => {
 
     const [data, setData] = useState()
-    const [post, createPost] = useState()
+    const [post, setPost] = useState()
 
-    // useEffect(() => {
-    //     const makePost = async () => {
-    //         try {
-    //             const res = await axios.post('/api/create')
-    //             createPost(res.data)
-    //         }
-    //         catch (err) {
-    //             console.log(err)
-    //         }
-    //     }
-    //     makePost()
-    // }, []);
+    useEffect(() => {
+        const makePost = async () => {
+            try {
+                const res = await axios.post('/api/create')
+                setPost(res.data)
+            }
+            catch (err) {
+                console.log(err)
+            }
+        }
+        setPost()
+    }, []);
 
 
     const handleChange = e => {
