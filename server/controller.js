@@ -31,7 +31,6 @@ module.exports = {
     res.status(200).send(post);
   },
 
-  // NOT WORKING
   createPost: async (req, res) => {
     const db = req.app.get("db");
     const { location_id, name, img, content } = req.body;
@@ -44,7 +43,6 @@ module.exports = {
     }
   },
 
-  // NOT WORKING
   editPost: async (req, res) => {
     const db = req.app.get("db");
     const { id } = req.params;
