@@ -11,7 +11,6 @@ const app = express();
 
 app.use(express.json());
 
-
 massive({
   connectionString: CONNECTION_STRING,
   ssl: { rejectUnauthorized: false },
