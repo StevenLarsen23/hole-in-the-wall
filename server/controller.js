@@ -23,6 +23,14 @@ module.exports = {
     res.status(200).send(posts);
   },
 
+  getPost: async (req, res) => {
+    const db = req.app.get("db");
+    const { id } = req.params;
+
+    const post = await db.get_one_post(+id);
+    res.status(200).send(post);
+  },
+
   // NOT WORKING
   createPost: async (req, res) => {
     const db = req.app.get("db");
@@ -35,7 +43,6 @@ module.exports = {
       res.sendStatus(500);
     }
   },
-
 
   // NOT WORKING
   editPost: async (req, res) => {

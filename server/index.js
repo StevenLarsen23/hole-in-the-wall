@@ -26,6 +26,7 @@ massive({
 app.get('/api/allStates', ctrl.getAllStates)
 app.get('/api/oneState/:id', ctrl.getOneState)
 app.get('/api/statePosts/:id', ctrl.getStatePosts)
+app.get('/api/onePost/:id', ctrl.getPost)
 app.post('/api/create', ctrl.createPost)
 app.put('/api/edit/:id', ctrl.editPost)
 app.delete('/api/delete/:id', ctrl.deletePost)
