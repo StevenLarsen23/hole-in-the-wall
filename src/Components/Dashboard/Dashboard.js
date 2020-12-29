@@ -1,33 +1,59 @@
 import "./Dashboard.css";
+import { Component } from "react";
+import axios from "axios";
 
-const Dashboard = () => {
-  return (
-    <div className="dashboard">
-      <div className="dash-header">
-        <h3 className="welcome">Welcome to the state of:</h3>
-        <h1 className="state">(Insert State Here)</h1>
-        <h4>Check out some of these great places to eat</h4>
+class Dashboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+      location: {},
+    };
+  }
+  componentDidMount() {
+    return axios.get('/api/allStates').then((res) => {
+      this.setState({
+        location: res.data
+      })
+    })
+  }
+
+  componentDidMount() {
+    return axios.get("/api/allPosts").then((res) => {
+      this.setState({
+        posts: res.data,
+      });
+    });
+  }
+
+
+  render() {
+
+    const posts = this.state.posts.map((posts, i) => {
+      return (
+        <div>
+          <img src={posts.img} alt={posts.name}/>
+          <li key={`${posts.id}-${i}`}>{posts.name}</li>
+        </div>
+      );
+    });
+    return (
+      <div className="dashboard">
+        <div className="dash-header">
+          <h3 className="welcome">Welcome to the state of:</h3>
+          {/* <h1 className="state">{state}</h1> */}
+          <h4>Check out some of these great places to eat</h4>
+        </div>
+        <div>
+          <ul className="list">
+            <li className="list-items">
+              {posts}
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <ul className="list">
-          <li className='list-items'>
-            <img
-              alt="R Pizza Place"
-              src="https://theswellutah.com/wp-content/uploads/2019/04/R_Pizza_Place_03-1920x1280.jpg"
-            />
-            <p>R Pizza Place</p>
-          </li>
-          <li className='list-items'>
-            <img
-              alt="East Coast Super Subs"
-              src="https://fastly.4sqi.net/img/general/600x600/66bCDReuB4wMmyYyMncP3nbB8uHnUMcMyPFzli8A_1Q.jpg"
-            />
-            <p>East Coast Super Subs</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Dashboard;

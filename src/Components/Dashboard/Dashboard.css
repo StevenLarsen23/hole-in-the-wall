@@ -2,19 +2,25 @@
     /* background-color: aqua; */
 }
 
-ul img {
-    height: 200px;
-    width: 200px;
+li div img {
+    height: 400px;
+    width: 400px;
 }
 
-.list {
+/* .list {
     list-style: none;
-    /* background-color: cadetblue; */
+    background-color: cadetblue;
     display: inline-flex;
     flex-direction: row;
+    flex-wrap: wrap;
     
-}
+} */
 
 .list-items {
     margin: 50px;
+    list-style: none;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

@@ -1,3 +1,5 @@
+let posts = []
+
 module.exports = {
   getAllStates: async (req, res) => {
     const db = req.app.get("db");
@@ -16,10 +18,9 @@ module.exports = {
     }
   },
 
-  getStatePosts: async (req, res) => {
+  getAllPosts: async (req, res) => {
     const db = req.app.get("db");
-    const { id } = req.params;
-    const posts = await db.get_state_posts(+id);
+    const posts = await db.get_all_posts();
     res.status(200).send(posts);
   },
 
