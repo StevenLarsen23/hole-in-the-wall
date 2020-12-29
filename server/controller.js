@@ -34,6 +34,7 @@ module.exports = {
   // NOT WORKING
   createPost: async (req, res) => {
     const db = req.app.get("db");
+    console.log(req.body)
     const { location_id, name, img, content } = req.body;
     try {
       const post = await db.create_post([location_id, name, img, content]);
