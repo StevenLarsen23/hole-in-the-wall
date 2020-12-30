@@ -1,7 +1,7 @@
 import "./Dashboard.css";
 import { Component } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -13,29 +13,24 @@ class Dashboard extends Component {
   }
 
   async componentDidMount() {
-    let posts = await axios.get("/api/allPosts")
-    let usState = await axios.get(`/api/oneState/${+this.props.match.params.stateid}`)
-      this.setState({
-        posts: posts.data,
-        usState: usState.data
-      });
-    ;
+    let { stateid } = this.props.match.params;
+    let posts = await axios.get(`/api/statePost/${+stateid}`);
+    let usState = await axios.get(`/api/oneState/${+stateid}`);
+    this.setState({
+      posts: posts.data,
+      usState: usState.data,
+    });
   }
 
   render() {
     const { posts, usState } = this.state;
     const post = posts.map((post, i) => {
       return (
-        <div>
-          {+this.props.match.params.stateid === post.location_id ? (
-            <div className='list-items'>
-              <Link className='links'
-              to={`/post/${post.id}`}>
-              <img src={post.img} alt={post.name} />
-              <p key={`${post.id}-${i}`}>{post.name}</p>
-              </Link>
-            </div>
-          ) : null}
+        <div className="list-items">
+          <Link className="links" to={`/post/${post.id}`}>
+            <img src={post.img} alt={post.name} />
+            <p key={`${post.id}-${i}`}>{post.name}</p>
+          </Link>
         </div>
       );
     });
@@ -46,9 +41,23 @@ class Dashboard extends Component {
           <h1 className="state">{usState.state_name}</h1>
           <h4>Check out some of these great places to eat</h4>
         </div>
-        <ul className="list">
-          <li>{post}</li>
-        </ul>
+        {posts.length === 0 ? (
+          <h1>
+            <Link to="/form" className="links">
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              {`No restaurants have been added for ${usState.state_name}.`} 
+              <br/>
+              Be the first to add one.
+            </Link>
+          </h1>
+        ) : (
+          <ul className="list">
+            <li>{post}</li>
+          </ul>
+        )}
       </div>
     );
   }

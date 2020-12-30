@@ -75,4 +75,5 @@ VALUES
 (3, 'East Coast Super Subs', 'https://fastly.4sqi.net/img/general/600x600/66bCDReuB4wMmyYyMncP3nbB8uHnUMcMyPFzli8A_1Q.jpg', 'Amazing subs and great decor!'),
 (3, 'Aqui Con El Nene', 'https://s3-media0.fl.yelpcdn.com/bphoto/Uqbn6_JLpP1cy_x3e_8RUg/o.jpg', 'All the food is amazing but I espically love the Mexican hot dogs!'),
 (44, 'R Pizza Place', 'https://theswellutah.com/wp-content/uploads/2019/04/R_Pizza_Place_03-1920x1280.jpg', 'Great pizza, pasta, breadsticks, etc. It''s out of the way but if you are in the area do yourself a favor and try it'),
-(44, 'Hruska''s Kolaches', 'https://s3-media0.fl.yelpcdn.com/bphoto/QNa--LvrwtZVNjJ-NArzmQ/o.jpg', 'Only open for breakfast and they go fast but they are worth getting up early for.');
+(44, 'Hruska''s Kolaches', 'https://s3-media0.fl.yelpcdn.com/bphoto/QNa--LvrwtZVNjJ-NArzmQ/o.jpg', 'Only open for breakfast and they go fast but they are worth getting up early for.')
+(23, 'Smoke In The Pit', 'https://media-cdn.tripadvisor.com/media/photo-s/0b/7d/98/14/definitely-off-the-beaten.jpg', 'Small place in the cut, food was delish and was ready quickly');
