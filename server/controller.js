@@ -32,6 +32,14 @@ module.exports = {
     res.status(200).send(post);
   },
 
+  statePost: async (req, res) => {
+    const db = req.app.get('db')
+    const {id} = req.params;
+
+    const posts = await db.get_state_posts(+id)
+    res.status(200).send(posts)
+  },
+
   createPost: async (req, res) => {
     const db = req.app.get("db");
     const { location_id, name, img, content } = req.body;

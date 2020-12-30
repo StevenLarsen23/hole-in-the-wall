@@ -27,6 +27,7 @@ app.get("/api/allStates", ctrl.getAllStates);
 app.get("/api/oneState/:id", ctrl.getOneState);
 app.get("/api/allPosts", ctrl.getAllPosts);
 app.get("/api/onePost/:id", ctrl.getPost);
+app.get('/api/statePost/:id', ctrl.statePost)
 app.post("/api/create", ctrl.createPost);
 app.put("/api/edit/:id", ctrl.editPost);
 app.delete("/api/delete/:id", ctrl.deletePost);
