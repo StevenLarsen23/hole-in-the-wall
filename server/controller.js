@@ -1,3 +1,5 @@
+let posts = []
+
 module.exports = {
   getAllStates: async (req, res) => {
     const db = req.app.get("db");
@@ -8,18 +10,17 @@ module.exports = {
   getOneState: async (req, res) => {
     const db = req.app.get("db");
     const { id } = req.params;
-    const [state] = await db.get_one_state(+id);
-    if (state) {
-      res.status(200).send(state);
+    const [usState] = await db.get_one_state(+id);
+    if (usState) {
+      res.status(200).send(usState);
     } else {
-      res.status(404).send("State not found");
+      res.status(400).send("State not found");
     }
   },
 
-  getStatePosts: async (req, res) => {
+  getAllPosts: async (req, res) => {
     const db = req.app.get("db");
-    const { id } = req.params;
-    const posts = await db.get_state_posts(+id);
+    const posts = await db.get_all_posts();
     res.status(200).send(posts);
   },
 
