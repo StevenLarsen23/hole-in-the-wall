@@ -11,6 +11,11 @@ li div img {
     
 }
 
+.links {
+    text-decoration: none;
+    color: black;
+}
+
 .list-items {
     margin: 50px;
     list-style: none;

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
+import "./Post.css"
+// import { connect } from 'react-redux'
+// import { Link } from 'react-router-dom';
 
 class Post extends Component {
     constructor(props) {
@@ -15,21 +16,22 @@ class Post extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     let id = this.props.match.params.postid;
-    //     console.log(id);
-    //     axios
-    //       .get(`/api/post/${id}`)
-    //       .then(res => {
-    //           const post = res.data[0]
-    //         this.setState({ 
-    //             img: post.img,
-    //             content: post.content,
-    //             name: post.name
-    //          });
-    //       })
-    //       .catch(err => console.log(err));
-    //   }
+    componentDidMount() {
+        let id = this.props.match.params.postid;
+        console.log(id);
+        axios
+          .get(`/api/onePost/${id}`)
+          .then(res => {
+              const post = res.data[0]
+            this.setState({ 
+                img: post.img,
+                content: post.content,
+                name: post.name
+             });
+             console.log(this.state.img)
+          })
+          .catch(err => console.log(err));
+      }
 
     //   deleteById() {
     //     let id = this.props.match.params.postid;
@@ -50,7 +52,7 @@ class Post extends Component {
                 <div className="topPost">
                     <h2>{name}</h2>
                     <br></br>
-                    <img src={img}/>
+                    <img className='img' src={img}/>
                     <br></br>
                     <br></br>
                     {content}

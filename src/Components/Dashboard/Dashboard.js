@@ -1,6 +1,7 @@
 import "./Dashboard.css";
 import { Component } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -28,8 +29,11 @@ class Dashboard extends Component {
         <div>
           {+this.props.match.params.stateid === post.location_id ? (
             <div className='list-items'>
+              <Link className='links'
+              to={`/post/${post.id}`}>
               <img src={post.img} alt={post.name} />
               <p key={`${post.id}-${i}`}>{post.name}</p>
+              </Link>
             </div>
           ) : null}
         </div>
