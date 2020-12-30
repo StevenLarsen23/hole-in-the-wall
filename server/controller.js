@@ -2,6 +2,7 @@ module.exports = {
   getAllStates: async (req, res) => {
     const db = req.app.get("db");
     const allStates = await db.get_all_states();
+    console.log('hit')
     res.status(200).send(allStates);
   },
 
