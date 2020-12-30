@@ -10,11 +10,11 @@ module.exports = {
   getOneState: async (req, res) => {
     const db = req.app.get("db");
     const { id } = req.params;
-    const [state] = await db.get_one_state(+id);
-    if (state) {
-      res.status(200).send(state);
+    const [usState] = await db.get_one_state(+id);
+    if (usState) {
+      res.status(200).send(usState);
     } else {
-      res.status(404).send("State not found");
+      res.status(400).send("State not found");
     }
   },
 

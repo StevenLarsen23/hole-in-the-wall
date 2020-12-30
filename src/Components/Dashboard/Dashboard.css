@@ -1,26 +1,21 @@
-.dashboard {
-    /* background-color: aqua; */
-}
-
 li div img {
     height: 400px;
     width: 400px;
 }
 
-/* .list {
+.list {
     list-style: none;
-    background-color: cadetblue;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
     
-} */
+}
 
 .list-items {
     margin: 50px;
     list-style: none;
     display: inline-flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
 }

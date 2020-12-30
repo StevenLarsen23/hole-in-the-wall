@@ -3,37 +3,35 @@ import { Component } from "react";
 import axios from "axios";
 
 class Dashboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       posts: [],
-      location: {},
+      usState: {},
     };
   }
-  componentDidMount() {
-    return axios.get('/api/allStates').then((res) => {
-      this.setState({
-        location: res.data
-      })
-    })
-  }
 
-  componentDidMount() {
-    return axios.get("/api/allPosts").then((res) => {
+  async componentDidMount() {
+    let posts = await axios.get("/api/allPosts")
+    let usState = await axios.get(`/api/oneState/${+this.props.match.params.stateid}`)
       this.setState({
-        posts: res.data,
+        posts: posts.data,
+        usState: usState.data
       });
-    });
+    ;
   }
-
 
   render() {
-
-    const posts = this.state.posts.map((posts, i) => {
+    const { posts, usState } = this.state;
+    const post = posts.map((post, i) => {
       return (
         <div>
-          <img src={posts.img} alt={posts.name}/>
-          <li key={`${posts.id}-${i}`}>{posts.name}</li>
+          {+this.props.match.params.stateid === post.location_id ? (
+            <div className='list-items'>
+              <img src={post.img} alt={post.name} />
+              <p key={`${post.id}-${i}`}>{post.name}</p>
+            </div>
+          ) : null}
         </div>
       );
     });
@@ -41,16 +39,12 @@ class Dashboard extends Component {
       <div className="dashboard">
         <div className="dash-header">
           <h3 className="welcome">Welcome to the state of:</h3>
-          {/* <h1 className="state">{state}</h1> */}
+          <h1 className="state">{usState.state_name}</h1>
           <h4>Check out some of these great places to eat</h4>
         </div>
-        <div>
-          <ul className="list">
-            <li className="list-items">
-              {posts}
-            </li>
-          </ul>
-        </div>
+        <ul className="list">
+          <li>{post}</li>
+        </ul>
       </div>
     );
   }
