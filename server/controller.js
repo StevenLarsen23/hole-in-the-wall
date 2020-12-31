@@ -1,5 +1,4 @@
 let posts = []
-
 module.exports = {
   getAllStates: async (req, res) => {
     const db = req.app.get("db");
