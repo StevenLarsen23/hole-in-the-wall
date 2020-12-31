@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import "./Post.css"
+import "../PostEdit/PostEdit.css"
 // import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-class Post extends Component {
+class PostEdit extends Component {
     constructor(props) {
         super(props);
         
@@ -13,7 +13,6 @@ class Post extends Component {
             img: '',
             content: '',
             post: [],
-            postid: 0
         }
     }
 
@@ -27,8 +26,7 @@ class Post extends Component {
             this.setState({ 
                 img: post.img,
                 content: post.content,
-                name: post.name,
-                postid: post.id
+                name: post.name
              });
              console.log(this.state.img)
           })
@@ -48,9 +46,10 @@ class Post extends Component {
     //   }
 
     render() {
-        const {img, content, name, postid} = this.state;
+        const {img, content, name} = this.state;
         return (
             <div>
+                <h1> POST EDIT </h1>
                 <div className="topPost">
                     <h2>{name}</h2>
                     <br></br>
@@ -64,7 +63,7 @@ class Post extends Component {
                 <br></br>
                 <button onClick={()=>{
             this.deleteById();}}>Delete</button>
-                <Link to={`/edit/${postid}`}><button>Edit</button></Link>
+                {/* <Link to={`/edit/${id}`}><button>Edit</button></Link> */}
                 <br></br>
                 <br></br>
 
@@ -73,4 +72,4 @@ class Post extends Component {
     }
 }
 
-export default Post;
+export default PostEdit;
