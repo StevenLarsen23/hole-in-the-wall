@@ -27,7 +27,7 @@ class Dashboard extends Component {
     const post = posts.map((e, i) => {
       return (
         <div className="list-items">
-          <Link className="links" to={`/post/${e.id}`}>
+          <Link className="dash-links" to={`/post/${e.id}`}>
             <img src={e.img} alt={e.name} />
             <p key={`${e.id}-${i}`}>{e.name}</p>
           </Link>
@@ -35,7 +35,7 @@ class Dashboard extends Component {
       );
     });
     return (
-      <div className="dashboard" style={{backgroundImage: `url('${usState.state_img}')`, backgroundSize: 'cover',  }}>
+      <div className="dashboard" style={{backgroundImage: `url('${usState.state_img}')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat'  }}>
         <div className="dash-header">
           {usState.id === 5 || usState.id === 43 ? (
             <h3 className="welcome">Welcome to the Mediocre state of:</h3>
