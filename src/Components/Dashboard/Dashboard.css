@@ -1,6 +1,7 @@
 .dashboard {
     height: 95vh;
     margin-top: -2vh;
+    text-shadow: 2px 2px white
 }
 
 li div img {
