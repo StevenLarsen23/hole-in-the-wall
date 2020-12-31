@@ -13,11 +13,11 @@ const Header = () => {
             </div>
 
             <Link to='/' className="links">  
-                Home  
+                HOME  
             </Link>
 
-            <Link to='/form' className="links">  
-                Add Spot  
+            <Link to='/form'  className="links">  
+                ADD SPOT  
             </Link>
 
 

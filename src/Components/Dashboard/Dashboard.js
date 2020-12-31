@@ -1,33 +1,66 @@
 import "./Dashboard.css";
+import { Component } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-const Dashboard = () => {
-  return (
-    <div className="dashboard">
-      <div className="dash-header">
-        <h3 className="welcome">Welcome to the state of:</h3>
-        <h1 className="state">(Insert State Here)</h1>
-        <h4>Check out some of these great places to eat</h4>
+class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+      usState: {},
+    };
+  }
+
+  async componentDidMount() {
+    let { stateid } = this.props.match.params;
+    let posts = await axios.get(`/api/statePost/${+stateid}`);
+    let usState = await axios.get(`/api/oneState/${+stateid}`);
+    this.setState({
+      posts: posts.data,
+      usState: usState.data,
+    });
+  }
+
+  render() {
+    const { posts, usState } = this.state;
+    const post = posts.map((post, i) => {
+      return (
+        <div className="list-items">
+          <Link className="links" to={`/post/${post.id}`}>
+            <img src={post.img} alt={post.name} />
+            <p key={`${post.id}-${i}`}>{post.name}</p>
+          </Link>
+        </div>
+      );
+    });
+    return (
+      <div className="dashboard">
+        <div className="dash-header">
+          <h3 className="welcome">Welcome to the state of:</h3>
+          <h1 className="state">{usState.state_name}</h1>
+          <h4>Check out some of these great places to eat</h4>
+        </div>
+        {posts.length === 0 ? (
+          <h1>
+            <Link to="/form" className="links">
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              {`No restaurants have been added for ${usState.state_name}.`} 
+              <br/>
+              Be the first to add one.
+            </Link>
+          </h1>
+        ) : (
+          <ul className="list">
+            <li>{post}</li>
+          </ul>
+        )}
       </div>
-      <div>
-        <ul className="list">
-          <li className='list-items'>
-            <img
-              alt="R Pizza Place"
-              src="https://theswellutah.com/wp-content/uploads/2019/04/R_Pizza_Place_03-1920x1280.jpg"
-            />
-            <p>R Pizza Place</p>
-          </li>
-          <li className='list-items'>
-            <img
-              alt="East Coast Super Subs"
-              src="https://fastly.4sqi.net/img/general/600x600/66bCDReuB4wMmyYyMncP3nbB8uHnUMcMyPFzli8A_1Q.jpg"
-            />
-            <p>East Coast Super Subs</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Dashboard;

@@ -1,3 +1,5 @@
+let posts = []
+
 module.exports = {
 <<<<<<< HEAD
     delete: ( req, res, next ) => {
@@ -27,24 +29,24 @@ module.exports = {
   getAllStates: async (req, res) => {
     const db = req.app.get("db");
     const allStates = await db.get_all_states();
+    console.log('hit')
     res.status(200).send(allStates);
   },
 
   getOneState: async (req, res) => {
     const db = req.app.get("db");
     const { id } = req.params;
-    const [state] = await db.get_one_state(+id);
-    if (state) {
-      res.status(200).send(state);
+    const [usState] = await db.get_one_state(+id);
+    if (usState) {
+      res.status(200).send(usState);
     } else {
-      res.status(404).send("State not found");
+      res.status(400).send("State not found");
     }
   },
 
-  getStatePosts: async (req, res) => {
+  getAllPosts: async (req, res) => {
     const db = req.app.get("db");
-    const { id } = req.params;
-    const posts = await db.get_state_posts(+id);
+    const posts = await db.get_all_posts();
     res.status(200).send(posts);
   },
 
@@ -54,6 +56,14 @@ module.exports = {
 
     const post = await db.get_one_post(+id);
     res.status(200).send(post);
+  },
+
+  statePost: async (req, res) => {
+    const db = req.app.get('db')
+    const {id} = req.params;
+
+    const posts = await db.get_state_posts(+id)
+    res.status(200).send(posts)
   },
 
   createPost: async (req, res) => {

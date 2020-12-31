@@ -1,38 +1,53 @@
 import React, {Component} from "react";
 import axios from 'axios'
+import { Link } from "react-router-dom"
 
 class Home extends Component {
     constructor(){
         super()
         this.state = {
-            id: "",
-            state_name: "",
-            state_img: ""
+            home: []
         }
     }
 
     componentDidMount(){
             axios.get(`/api/allStates`)
             .then(res => this.setState({
-                id: res.data.id,
-                state_name: res.data.state_name,
-                state_img: res.data.state_img
+                home: res.data
             }))
     }
 
 
-    render(){
-        const {state_name, state_img} = this.state
-        return (
-            <div className= 'state-container'>
-                <div className= 'state-box'>
-                    <h1>{state_name}</h1>
-                        
-                    
-                    <img src={state_img}/>
-                        
+    render() {
+        const { home } = this.state
+        console.log(home)
+        const displayHome = home.map((e) => {
+            return (
+                <div classname='home' key={e.id}>
+
+                    <div classname='container'>
+
+                        <div classname='stateName'>
+
+                            {e.state_name}
+
+                        </div>
+
+                        <div classname='stateImg'>
+
+                            <img
+                            src={e.state_img} alt={e.state_name}
+                            />
+
+                        </div>
+
+                    </div>
+
                 </div>
-            </div>
+            )
+        })
+        return (
+            <div>{displayHome}</div>
         )
     }
 

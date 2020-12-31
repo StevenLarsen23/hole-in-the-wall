@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Form = () => {
 
-    const [data, setData] = useState()
-    const [post, createPost] = useState()
+    const [data, setData] = useState();
 
-    // useEffect(() => {
-    //     const makePost = async () => {
-    //         try {
-    //             const res = await axios.post('/api/create')
-    //             createPost(res.data)
-    //         }
-    //         catch (err) {
-    //             console.log(err)
-    //         }
-    //     }
-    //     makePost()
-    // }, []);
+    const history = useHistory();
+
+   
+    const newPost = async () => {
+        const { name, img, content } = data
+        await axios.post("/api/create", { name, img, content })
+            .catch(err => console.log(err))
+
+        history.push('/')
+    }
 
 
     const handleChange = e => {
@@ -25,7 +23,7 @@ const Form = () => {
     }
 
     return (
-        <div>This is the Form Component
+        <form onSubmit={newPost} >
             <div>
                 <input type='text' placeholder='name of place' onChange={e => handleChange(e)} ></input>
             </div>
@@ -42,9 +40,8 @@ const Form = () => {
                 <input type='text' placeholder='description of new location' onChange={e => handleChange(e)} ></input>
             </div>
 
-
-            <button>Create Spot</button>
-        </div>
+            <button type='submit'>Add New Spot</button>
+        </form>
     )
 }
 
