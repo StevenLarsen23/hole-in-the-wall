@@ -1,7 +1,11 @@
 .dashboard {
-    height: 95vh;
+    height: 94vh;
     margin-top: -2vh;
     text-shadow: 2px 2px white
+}
+
+.dash-header {
+    backdrop-filter: blur(8px);
 }
 
 li div img {
