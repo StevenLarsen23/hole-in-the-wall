@@ -35,7 +35,7 @@ class Dashboard extends Component {
       );
     });
     return (
-      <div className="dashboard">
+      <div className="dashboard" style={{backgroundImage: `url('${usState.state_img}')`, backgroundSize: 'cover',  }}>
         <div className="dash-header">
           {usState.id === 5 || usState.id === 43 ? (
             <h3 className="welcome">Welcome to the Mediocre state of:</h3>

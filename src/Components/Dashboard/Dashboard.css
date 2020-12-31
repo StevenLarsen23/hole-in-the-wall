@@ -1,3 +1,8 @@
+.dashboard {
+    height: 95vh;
+    margin-top: -2vh;
+}
+
 li div img {
     height: 400px;
     width: 400px;
@@ -14,6 +19,7 @@ li div img {
 .links {
     text-decoration: none;
     color: black;
+    text-shadow: 2px 2px white
 }
 
 .list-items {
