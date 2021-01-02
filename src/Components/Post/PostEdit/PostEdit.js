@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import "../PostEdit/PostEdit.css"
 // import { connect } from 'react-redux'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-class PostEdit extends Component {
+class Post extends Component {
     constructor(props) {
         super(props);
         
@@ -13,6 +13,7 @@ class PostEdit extends Component {
             img: '',
             content: '',
             post: [],
+            postid: 0
         }
     }
 
@@ -26,12 +27,30 @@ class PostEdit extends Component {
             this.setState({ 
                 img: post.img,
                 content: post.content,
-                name: post.name
+                name: post.name,
+                postid: post.id
              });
              console.log(this.state.img)
           })
           .catch(err => console.log(err));
       }
+
+      editById(name, img, content) {
+        let id = this.props.match.params.postid;
+        axios
+          .put(`/api/edit/${id}`, { name, img, content})
+          .then(res => {
+            console.log(res.data);
+            this.setState({ post: res.data });
+          })
+          .catch(err => console.log(err));
+      }
+
+      handleChange(e){
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
     //   deleteById() {
     //     let id = this.props.match.params.postid;
@@ -46,24 +65,29 @@ class PostEdit extends Component {
     //   }
 
     render() {
-        const {img, content, name} = this.state;
+        const {img, content, name, postid} = this.state;
         return (
             <div>
-                <h1> POST EDIT </h1>
                 <div className="topPost">
-                    <h2>{name}</h2>
+                    Title:
+                  <br></br>
+                    <input type="text" placeholder="Title" defaultValue={name} onChange={(e) => this.handleChange(e)} name="name"/>
                     <br></br>
                     <img className='img' src={img}/>
                     <br></br>
                     <br></br>
-                    {content}
+                    <input type="text" placeholder="Text (optional)" defaultValue={content} onChange={(e) => this.handleChange(e)} name="content"/>
                     
                 </div>
                 <br></br>
                 <br></br>
                 <button onClick={()=>{
             this.deleteById();}}>Delete</button>
-                {/* <Link to={`/edit/${id}`}><button>Edit</button></Link> */}
+                
+                <Link to={`/post/${postid}`}>
+                    <button onClick={() => this.editById(name, img, content)}>Save</button>
+                </Link>
+                
                 <br></br>
                 <br></br>
 
@@ -72,4 +96,4 @@ class PostEdit extends Component {
     }
 }
 
-export default PostEdit;
+export default Post;
