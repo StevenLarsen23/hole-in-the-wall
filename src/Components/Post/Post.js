@@ -40,17 +40,19 @@ class Post extends Component {
       .catch((err) => console.log(err));
   }
 
-  //   deleteById() {
-  //     let id = this.props.match.params.postid;
-  //     console.log(id)
-  //     axios
-  //       .delete(`/api/post/${id}`)
-  //       .then(() => {
-  //         this.props.history.push('/dashboard')
-  //       })
-  //       .catch(err => console.log(err));
 
-  //   }
+      deleteById() {
+        let id = this.props.match.params.postid;
+        console.log(id)
+        axios
+          .delete(`/api/delete/${id}`)
+          .then(() => {
+            this.props.history.push('/dashboard')
+          })
+          .catch(err => console.log(err));
+          
+      }
+
 
   render() {
     const { img, content, name, usState } = this.state;
