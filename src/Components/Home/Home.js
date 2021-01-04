@@ -27,7 +27,6 @@ class Home extends Component {
                 <div className='home' key={e.id}>
                     <div className='container'>
                         <Link to= {`/dashboard/${e.id}`} className="Links">
-
                             <div className='stateName'>{e.state_name}</div>
 
                             <img className="stateImg" src={e.state_img} alt={e.state_name}/> 
