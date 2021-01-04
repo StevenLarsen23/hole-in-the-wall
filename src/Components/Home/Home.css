@@ -1,0 +1,32 @@
+.home {
+    margin: 5px;
+}
+
+.container {
+    
+}
+
+.stateImg {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    width: 300px;
+    
+}
+
+.stateName {
+    margin: 10px;
+}
+
+.grid {
+    flex-basis: calc(20% - 40px); 
+    min-width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     margin-top: 1rem;
+
+}
+
+
+

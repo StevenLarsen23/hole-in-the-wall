@@ -30,7 +30,7 @@ class Home extends Component {
 
                             <div className='stateName'>{e.state_name}</div>
 
-                            <div className='stateImg'> <img src={e.state_img} alt={e.state_name}/> </div>
+                            <img className="stateImg" src={e.state_img} alt={e.state_name}/> 
 
                         </Link>
                     </div>
@@ -38,7 +38,7 @@ class Home extends Component {
             )
         })
         return (
-            <div>{displayHome}</div>
+            <div className="grid">{displayHome}</div>
         )
     }
 
