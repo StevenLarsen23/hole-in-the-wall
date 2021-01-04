@@ -2,3 +2,8 @@
     max-width: 45vw;
     max-height: 65vh;
 }
+
+iframe {
+    height: 60vh;
+    width: 25vw;
+}
