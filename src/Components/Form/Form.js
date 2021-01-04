@@ -14,8 +14,10 @@ const Form = () => {
 
 
     const newPost = async () => {
-        const { name, img, content } = data
-        await axios.post("/api/create", { name, img, content })
+
+        const { location_id, name, img, content } = data
+        await axios.post("/api/create", { location_id, name, img, content })
+
             .catch(err => console.log(err))
 
         history.push('/')
@@ -25,8 +27,10 @@ const Form = () => {
     const handleChange = e => {
         setData({ ...data, [e.target.name]: e.target.value });
     }
-
+    
     return (
+
+    
 
         <div className='div-main'>
             <h1>Add your own favorite Hole-in-the-Wall!</h1>
@@ -36,16 +40,19 @@ const Form = () => {
                     <input className='name-input input'
                         type='text'
                         placeholder='name of place'
-                        onChange={e => handleChange(e)} >
+                        onChange={e => handleChange(e.name)} >
                     </input>
                 </div>
+
 
                 <div>
                     <div >
                         <Dropdown
                             states={states}
                             prompt='Select a state...'
-                            value={value}
+
+                            // value={value.location_id}
+
                             onChange={val => setValue(val)}
                         />
                     </div>

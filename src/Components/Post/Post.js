@@ -4,9 +4,12 @@ import "./Post.css";
 // import { connect } from 'react-redux'
 import { Link } from "react-router-dom";
 
+import {googleApiKey} from '../../data/privateKeys'
+
 class Post extends Component {
   constructor(props) {
     super(props);
+
 
     this.state = {
       name: "",
@@ -20,7 +23,7 @@ class Post extends Component {
 
   componentDidMount() {
     let id = this.props.match.params.postid;
-    console.log(id);
+    
     axios
       .get(`/api/onePost/${id}`)
       .then((res) => {
@@ -37,17 +40,20 @@ class Post extends Component {
       .catch((err) => console.log(err));
   }
 
-  //   deleteById() {
-  //     let id = this.props.match.params.postid;
-  //     console.log(id)
-  //     axios
-  //       .delete(`/api/post/${id}`)
-  //       .then(() => {
-  //         this.props.history.push('/dashboard')
-  //       })
-  //       .catch(err => console.log(err));
 
-  //   }
+      deleteById() {
+        let id = this.props.match.params.postid;
+        console.log(id)
+        axios
+          .delete(`/api/delete/${id}`)
+          .then(() => {
+            this.props.history.push('/dashboard')
+          })
+          .catch(err => console.log(err));
+          
+      }
+
+
 
   render() {
     const { img, content, name, usState } = this.state;
@@ -60,8 +66,9 @@ class Post extends Component {
           <iframe
             title="google maps"
             frameborder="0"
-            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDVQ9Qxml8jTLSBcNH5Y7PIFe89Z3YNDNw
-    &q=${name},${usState}`}
+
+            src={`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${name},${usState}`}
+
             allowfullscreen
           ></iframe>
           <br></br>

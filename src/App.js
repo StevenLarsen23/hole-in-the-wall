@@ -6,6 +6,7 @@ import routes from './routes'
 function App() {
   return (
     <div className="App">
+      {console.log(process.env)}
       <Header/>
       {routes}
     </div>
