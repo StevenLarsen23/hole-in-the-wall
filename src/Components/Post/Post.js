@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./Post.css";
 // import { connect } from 'react-redux'
-// import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Post extends Component {
   constructor(props) {
@@ -12,8 +12,9 @@ class Post extends Component {
       name: "",
       img: "",
       content: "",
-      usState: '',
+      usState: "",
       post: [],
+      postid: 0,
     };
   }
 
@@ -28,8 +29,8 @@ class Post extends Component {
           img: post.img,
           content: post.content,
           name: post.name,
-          usState: post.state_name
-
+          postid: post.id,
+          usState: post.state_name,
         });
         console.log(this.state.img);
       })
