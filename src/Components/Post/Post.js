@@ -60,7 +60,7 @@ class Post extends Component {
           <iframe
             title="google maps"
             frameborder="0"
-            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDVQ9Qxml8jTLSBcNH5Y7PIFe89Z3YNDNw
+            src={`https://www.google.com/maps/embed/v1/place?key=
     &q=${name},${usState}`}
             allowfullscreen
           ></iframe>
