@@ -5,7 +5,7 @@ const massive = require("massive");
 
 const ctrl = require("./controller");
 
-const { CONNECTION_STRING, SERVER_PORT } = process.env;
+const { CONNECTION_STRING, SERVER_PORT, REACT_APP_API_KEY_GOOGLE_MAPS } = process.env;
 
 const app = express();
 
