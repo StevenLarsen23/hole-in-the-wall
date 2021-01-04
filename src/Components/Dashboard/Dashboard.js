@@ -24,32 +24,36 @@ class Dashboard extends Component {
 
   render() {
     const { posts, usState } = this.state;
-    const post = posts.map((post, i) => {
+    const post = posts.map((e, i) => {
       return (
         <div className="list-items">
-          <Link className="links" to={`/post/${post.id}`}>
-            <img src={post.img} alt={post.name} />
-            <p key={`${post.id}-${i}`}>{post.name}</p>
+          <Link className="dash-links" to={`/post/${e.id}`}>
+            <img src={e.img} alt={e.name} />
+            <p key={`${e.id}-${i}`}>{e.name}</p>
           </Link>
         </div>
       );
     });
     return (
-      <div className="dashboard">
+      <div className="dashboard" style={{backgroundImage: `url('${usState.state_img}')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'middle'  }}>
         <div className="dash-header">
-          <h3 className="welcome">Welcome to the state of:</h3>
+          {usState.id === 5 || usState.id === 43 ? (
+            <h3 className="welcome">Welcome to the Mediocre state of:</h3>
+          ) : (
+            <h3 className="welcome">Welcome to the Great state of:</h3>
+          )}
           <h1 className="state">{usState.state_name}</h1>
           <h4>Check out some of these great places to eat</h4>
         </div>
         {posts.length === 0 ? (
           <h1>
+            <br />
+            <br />
+            <br />
+            <br />
             <Link to="/form" className="links">
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              {`No restaurants have been added for ${usState.state_name}.`} 
-              <br/>
+              {`No restaurants have been added for ${usState.state_name}.`}
+              <br />
               Be the first to add one.
             </Link>
           </h1>
