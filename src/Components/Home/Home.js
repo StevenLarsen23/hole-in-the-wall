@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import axios from 'axios'
 import { Link } from "react-router-dom"
+import "../Home/Home.css"
 
 class Home extends Component {
     constructor(){
@@ -23,26 +24,13 @@ class Home extends Component {
         console.log(home)
         const displayHome = home.map((e) => {
             return (
-                <div classname='home' key={e.id}>
-
-                    <div classname='container'>
-
-                        <div classname='stateName'>
-
-                            {e.state_name}
-
-                        </div>
-
-                        <div classname='stateImg'>
-
-                            <img
-                            src={e.state_img} alt={e.state_name}
-                            />
-
-                        </div>
-
+                <div className='home' key={e.id}>
+                    <div className='container'>
+                        <Link to= {`/dashboard/${e.id}`} className="Links">
+                            <div className='stateName'>{e.state_name}</div>
+                            <img className='stateImg' src={e.state_img} alt={e.state_name}/>
+                        </Link>
                     </div>
-
                 </div>
             )
         })
