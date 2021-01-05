@@ -1,4 +1,5 @@
 
+  [
   { "name": "Alabama", "location_id": 1 },
   { "name": "Alaska", "location_id": 2 },
   { "name": "Arizona", "location_id": 3 },

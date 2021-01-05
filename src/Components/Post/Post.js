@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./Post.css";
 // import { connect } from 'react-redux'
-
-// import { Link } from "react-router-dom";
-import {googleApiKey} from '../../data/privateKeys'
-
 import {googleApiKey} from '../../data/privateKeys'
 
 class Post extends Component {
