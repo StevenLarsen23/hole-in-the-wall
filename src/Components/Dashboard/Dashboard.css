@@ -42,3 +42,7 @@ li div img {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+#no-hitw {
+  background-color: white;
+}
