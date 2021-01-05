@@ -42,7 +42,6 @@ const Form = () => {
             onChange={(e) => nameSetInput(e.target.value)}
           ></input>
         </div>
-
         <div>
           <div>
             <Dropdown
@@ -53,7 +52,6 @@ const Form = () => {
               />
           </div>
         </div>
-
         <div>
           <input
             className="img-input input"

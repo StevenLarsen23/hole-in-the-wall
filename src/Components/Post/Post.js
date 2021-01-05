@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./Post.css";
 // import { connect } from 'react-redux'
+
 // import { Link } from "react-router-dom";
 import {googleApiKey} from '../../data/privateKeys'
 
-
+import {googleApiKey} from '../../data/privateKeys'
 
 class Post extends Component {
   constructor(props) {
     super(props);
+
 
     this.state = {
       name: "",
@@ -54,6 +56,7 @@ class Post extends Component {
       }
 
 
+
   render() {
     const { img, content, name, usState } = this.state;
     return (
@@ -65,7 +68,9 @@ class Post extends Component {
           <iframe
             title="google maps"
             frameborder="0"
+
             src={`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${name},${usState}`}
+
             allowfullscreen
           ></iframe>
           <br></br>
