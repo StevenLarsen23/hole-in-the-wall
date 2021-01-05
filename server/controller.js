@@ -41,9 +41,9 @@ module.exports = {
 
   createPost: async (req, res) => {
     const db = req.app.get("db");
-    const { location_id, name, img, content } = req.body;
+    const { location_id, nameInput, imgInput, contentInput } = req.body;
     try {
-      const post = await db.create_post([location_id, name, img, content]);
+      const post = await db.create_post([location_id, nameInput, imgInput, contentInput]);
       res.status(200).send(post);
     } catch (err) {
       console.log("Error adding post", err);

@@ -73,7 +73,7 @@ class Post extends Component {
                   <br></br>
                     <input type="text" placeholder="Title" defaultValue={name} onChange={(e) => this.handleChange(e)} name="name"/>
                     <br></br>
-                    <img className='img' src={img}/>
+                    <img className='img' alt={`${name}`} src={img}/>
                     <br></br>
                     <br></br>
                     <input type="text" placeholder="Text (optional)" defaultValue={content} onChange={(e) => this.handleChange(e)} name="content"/>
