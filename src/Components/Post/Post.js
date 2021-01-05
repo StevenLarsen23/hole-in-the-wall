@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./Post.css";
 // import { connect } from 'react-redux'
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {googleApiKey} from '../../data/privateKeys'
 
 
@@ -61,7 +61,7 @@ class Post extends Component {
         <div className="topPost">
           <h2>{name}</h2>
           <br></br>
-          <img className="img" src={img} />
+          <img className="img" alt={`${name}`} src={img} />
           <iframe
             title="google maps"
             frameborder="0"
