@@ -12,6 +12,7 @@
     flex-direction: row;
     height: 12vh;
     padding: 10px;
+    z-index: 2;
 }
 
 
