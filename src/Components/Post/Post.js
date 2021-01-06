@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Post.css";
 // import { connect } from 'react-redux'
 import {googleApiKey} from '../../data/privateKeys'
+import { Link } from 'react-router-dom';
 
 class Post extends Component {
   constructor(props) {
@@ -55,6 +56,7 @@ class Post extends Component {
 
   render() {
     const { img, content, name, usState } = this.state;
+    let id = this.props.match.params.postid;
     return (
       <div>
         <div className="topPost">
@@ -82,7 +84,7 @@ class Post extends Component {
         >
           Delete
         </button>
-        {/* <Link to={`/edit/${id}`}><button>Edit</button></Link> */}
+        <Link to={`/edit/${id}`}><button>Edit</button></Link>
         <br></br>
         <br></br>
         Comment as username
