@@ -51,7 +51,7 @@ class Dashboard extends Component {
             <br />
             <br />
             <br />
-            <Link to="/form" className="links">
+            <Link to="/form" className="links" id='no-hitw'>
               {`No restaurants have been added for ${usState.state_name}.`}
               <br />
               Be the first to add one.

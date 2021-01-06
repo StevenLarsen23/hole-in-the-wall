@@ -21,7 +21,6 @@ class Home extends Component {
 
     render() {
         const { home } = this.state
-        console.log(home)
         const displayHome = home.map((e) => {
             return (
                 <div className='home' key={e.id}>
