@@ -9,7 +9,7 @@ const Header = () => {
             <div className='homebutton'>
             <Link to='/' className="links">
                 <img className='icon' src={holeinwall} alt="" height="50" width="50" /> <br/>
-                <div className='home'>HOME</div>
+                <div className='header-home'>HOME</div>
             </Link>
             
             </div>

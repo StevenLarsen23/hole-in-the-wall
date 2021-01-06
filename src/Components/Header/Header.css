@@ -27,12 +27,13 @@
 }
 
 .icon{
-    margin-top: 0.5rem;
+    margin-top: 2.5rem;
     height: 75px;
     width: 75px;
+    filter: invert(1);
 }
 
-.home{
+.header-home{
     margin-left: 0.2rem;
     margin-bottom: 3rem;
     color: white;
@@ -40,9 +41,10 @@
  
 .add-btn{
     background: none;
+    border: none;
     height: 50px;
     width: 150px;
     color: white;
     font-size: 13pt;
-    margin-top: 5.75rem;
+    margin-top: rem;
 }
