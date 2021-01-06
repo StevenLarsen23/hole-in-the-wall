@@ -1,32 +1,78 @@
 .home {
-    margin: 5px;
+    margin: 15px;
+    background-color: white;
+    
+
 }
 
 .container {
+    margin: 5px;
+    
     
 }
 
 .stateImg {
     display: flex;
     flex-direction: row;
-    height: 300px;
-    width: 300px;
+    height: 333px;
+    width: 333px;
+    
     
 }
 
 .stateName {
-    margin: 10px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 0px;
+    
+    
 }
 
 .grid {
     flex-basis: calc(20% - 40px); 
-    min-width: 100%;
-     display: flex;
-     flex-wrap: wrap;
-     flex-direction: row;
-     margin-top: 1rem;
-
+    max-width: 1900px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: whitesmoke;
 }
+
+.Links {
+    text-decoration: none;
+}
+
+.home:hover {
+    -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  }
+
+
+  .home {
+    border: 1px solid gray;
+  }
+  
+  .home:hover {
+    border: 1px solid gray;
+    background-color: white;
+    box-shadow: 5px 5px 10px #aaaaaa;
+  }
+
+  .stateImg{
+    opacity:0.8;
+  }
+  .stateImg:hover{
+    opacity:1;
+  }
+
+  
+
+
+
 
 
 
