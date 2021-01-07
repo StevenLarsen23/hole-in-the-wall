@@ -77,7 +77,9 @@ class Post extends Component {
                     <img className='img' alt={`${name}`} src={img}/>
                     <br></br>
                     <br></br>
-                    <input type="text" placeholder="Text (optional)" defaultValue={content} onChange={(e) => this.handleChange(e)} name="content"/>
+
+
+                    <textarea name='content' defaultValue={content} className="commenttext"  cols="50" rows="10" onChange={(e) => this.handleChange(e)}></textarea>
                     
                 </div>
                 <br></br>
