@@ -65,7 +65,8 @@ class Post extends Component {
     //   }
 
     render() {
-        const {img, content, name, postid} = this.state;
+        const {img, content, name} = this.state;
+        let id = this.props.match.params.postid;
         return (
             <div>
                 <div className="topPost">
@@ -81,10 +82,11 @@ class Post extends Component {
                 </div>
                 <br></br>
                 <br></br>
-                <button onClick={()=>{
-            this.deleteById();}}>Delete</button>
+                <Link to={`/post/${id}`}>
+                    <button>Cancel</button>
+                </Link>
                 
-                <Link to={`/post/${postid}`}>
+                <Link to={`/post/${id}`}>
                     <button onClick={() => this.editById(name, img, content)}>Save</button>
                 </Link>
                 
