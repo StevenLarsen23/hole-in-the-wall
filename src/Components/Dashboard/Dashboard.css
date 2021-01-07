@@ -9,12 +9,12 @@
 }
 
 .dash-header {
-  backdrop-filter: blur(8px);
+  backdrop-filter: invert(35%);
 }
 
 li div img {
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
 }
 
 .list {

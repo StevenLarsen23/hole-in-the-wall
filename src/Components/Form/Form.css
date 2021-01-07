@@ -1,32 +1,44 @@
 
 .div-main{
-    /* background-color: aqua; */
     text-align: center;
-    
+    background-image: url(https://www.wwhf.org/wp-content/uploads/2014/04/map-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 } 
+
+.form-header{
+    margin:  auto;
+}
 
 .form-main{
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 500px;
+    height: 100vh;
 }
+
 
 .input{
-    width: 15vw;
-    height: 1.5rem; 
-    border-radius: 5px;
-}
-
-.name-input{
-    width: 15vw;
-    height: 1.5rem;
+    width: 11.5vw;
+    height: 2.25rem;
+    margin-top: 2rem;
+    border: none;
 }
 
 .descrip-box{
-    width: 25vw;
+    width: 20vw;
     height: 15vh;
+    margin: 2rem;
     border-radius: 5px;
+}
+
+.new-place-btn {
+    height: 35px;
+    width: 125px;
+    border: none;
+}
+
+.transparencey{
+    opacity: 77.5%;
 }
