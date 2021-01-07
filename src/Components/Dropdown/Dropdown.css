@@ -35,6 +35,7 @@
     padding: 8px 52px 8px 10px;
     transition: all 200ms ease;
     width: 100%;
+    opacity: 77.5%;
   }
   
   .dropdown .options {

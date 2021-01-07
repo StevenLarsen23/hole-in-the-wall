@@ -81,8 +81,9 @@ class Post extends Component {
                 </div>
                 <br></br>
                 <br></br>
-                <button onClick={()=>{
-            this.deleteById();}}>Delete</button>
+                <Link to={`/post/${postid}`}>
+                    <button>Cancel</button>
+                </Link>
                 
                 <Link to={`/post/${postid}`}>
                     <button onClick={() => this.editById(name, img, content)}>Save</button>
