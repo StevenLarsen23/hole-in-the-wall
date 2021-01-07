@@ -76,21 +76,12 @@ class Post extends Component {
           {content}
         </div>
         <br></br>
-        <br></br>
-        <button
-          onClick={() => {
-            this.deleteById();
-          }}
-        >
-          Delete
-        </button>
+          <button onClick={() => {
+            this.deleteById();}}>
+            Delete
+          </button>
         <Link to={`/edit/${id}`}><button>Edit</button></Link>
-        <br></br>
-        <br></br>
-        Comment as username
-        <br></br>
-        <input type="text" placeholder="What are your thoughts?"></input>
-        <button>Comment</button>
+          
       </div>
     );
   }
