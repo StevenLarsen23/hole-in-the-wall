@@ -51,3 +51,10 @@
 .Links {
   text-decoration: none;
 }
+
+.topHeader {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
+  margin-top: 15px;
+  font-weight: 700;
+}

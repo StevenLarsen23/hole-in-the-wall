@@ -36,7 +36,12 @@ class Home extends Component {
             )
         })
         return (
-            <div className="grid">{displayHome}</div>
+            <div> <header className="topHeader">Find Your Destination And See Where Others Have Gone!</header>
+             <div className="grid">
+                 
+                 {displayHome}
+             </div>
+            </div>
         )
     }
 
