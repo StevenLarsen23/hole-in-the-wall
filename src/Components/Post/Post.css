@@ -44,7 +44,7 @@ iframe {
 
 .post-content{
     display: flex;
-    height: 50vh;
+    height: auto;
     font-size: 15pt;
     font-weight: bold;
     margin-top: 3rem;
