@@ -1,5 +1,6 @@
 .dashboard {
-  height: 94vh;
+  height: auto;
+  min-height: 86vh;
   margin-top: -2vh;
   background: no-repeat center center fixed;
   -webkit-background-size: cover;

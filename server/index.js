@@ -4,6 +4,7 @@ const express = require("express");
 const massive = require("massive");
 
 const ctrl = require("./controller");
+const path = require('path')
 
 const { CONNECTION_STRING, SERVER_PORT } = process.env;
 
@@ -31,6 +32,12 @@ app.get('/api/statePost/:id', ctrl.statePost)
 app.post("/api/create", ctrl.createPost);
 app.put("/api/edit/:id", ctrl.editPost);
 app.delete("/api/delete/:id", ctrl.deletePost);
+
+app.use(express.static(__dirname + '/../build'))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '../build/index.html'))
+})
 
 app.listen(SERVER_PORT, () =>
   console.log(`Server is running on port: ${SERVER_PORT}`)
