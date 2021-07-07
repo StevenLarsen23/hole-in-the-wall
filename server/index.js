@@ -1,8 +1,6 @@
-require("dotenv").config();
-
+const myEnv = require('dotenv').config();
 const express = require("express");
 const massive = require("massive");
-
 const ctrl = require("./controller");
 const path = require('path')
 
